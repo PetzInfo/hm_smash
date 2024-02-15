@@ -31,6 +31,7 @@ func play_music():
 	music_player.set_bus("music")
 	add_child(music_player)
 	music_player.stream = Preloads.music_packed
+	music_player.volume_db = -35
 	
 
 func add_hit(id):
@@ -140,7 +141,7 @@ func _ready():
 
 func _process(_delta):
 	
-	music_player.set_volume_db(0.1)
+	
 	print(music_player.playing)
 	
 	if !music_player.playing:
