@@ -1,0 +1,88 @@
+[gd_scene load_steps=9 format=3 uid="uid://bg0fywkcyjx0a"]
+
+[ext_resource type="Script" path="res://ui/map_selection/map_selection.gd" id="1_28inj"]
+[ext_resource type="Texture2D" uid="uid://dr6s1agv7ooiw" path="res://ui/map_selection/assets/background.png" id="2_26iyr"]
+[ext_resource type="Texture2D" uid="uid://cigrra2xjnak4" path="res://ui/map_selection/assets/back_notPressed.png" id="3_0yebi"]
+[ext_resource type="Texture2D" uid="uid://kk8sybs47dbk" path="res://ui/map_selection/assets/backPressed.png" id="4_su3ol"]
+[ext_resource type="Texture2D" uid="uid://dsjuq5p1dcuxy" path="res://ui/map_selection/assets/next.png" id="5_02dej"]
+[ext_resource type="Texture2D" uid="uid://bhrj2v3tajpvj" path="res://ui/map_selection/assets/next_pressed.png" id="6_1iy15"]
+[ext_resource type="Texture2D" uid="uid://cese4am2xi7f4" path="res://ui/map_selection/assets/haken.png" id="7_x1pgy"]
+[ext_resource type="AudioStream" uid="uid://374kuang85h6" path="res://ui/sound_assets/button_sound.mp3" id="8_htfdo"]
+
+[node name="map_selection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_28inj")
+
+[node name="tamplate" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_26iyr")
+
+[node name="back_btn" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 454.0
+offset_top = 887.0
+offset_right = 939.0
+offset_bottom = 1005.0
+texture_normal = ExtResource("3_0yebi")
+texture_pressed = ExtResource("4_su3ol")
+
+[node name="next_btn" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 980.0
+offset_top = 885.0
+offset_right = 1465.0
+offset_bottom = 1003.0
+texture_normal = ExtResource("5_02dej")
+texture_pressed = ExtResource("6_1iy15")
+
+[node name="rbau_btn" type="TextureButton" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_left = 679.0
+offset_top = 108.0
+offset_right = 1242.0
+offset_bottom = 801.0
+stretch_mode = 5
+
+[node name="mucdai_btn" type="TextureButton" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_left = 106.0
+offset_top = 109.0
+offset_right = 669.0
+offset_bottom = 802.0
+stretch_mode = 5
+
+[node name="fk12_btn" type="TextureButton" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_left = 1251.0
+offset_top = 108.0
+offset_right = 1814.0
+offset_bottom = 801.0
+stretch_mode = 5
+
+[node name="choosen_check" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1671.0
+offset_top = 659.0
+offset_right = 1791.0
+offset_bottom = 779.0
+texture = ExtResource("7_x1pgy")
+
+[node name="click_snd" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_htfdo")
+bus = &"SFX"
+
+[connection signal="pressed" from="back_btn" to="." method="_on_back_btn_pressed"]
+[connection signal="pressed" from="next_btn" to="." method="_on_next_btn_pressed"]
+[connection signal="pressed" from="rbau_btn" to="." method="_on_rbau_btn_pressed"]
+[connection signal="pressed" from="mucdai_btn" to="." method="_on_mucdai_btn_pressed"]
+[connection signal="pressed" from="fk12_btn" to="." method="_on_fk_12_btn_pressed"]

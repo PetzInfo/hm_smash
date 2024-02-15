@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://gtl5156r88v6"]
+
+[ext_resource type="Texture2D" uid="uid://vayxcmpw5yp6" path="res://characters/theo_character/assets/laser.png" id="1_s2i1u"]
+[ext_resource type="Script" path="res://characters/theo_character/laser.gd" id="2_ttgtp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ld5po"]
+radius = 129.998
+height = 940.586
+
+[node name="Laser" type="Sprite2D"]
+position = Vector2(-5.96046e-08, 0)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_s2i1u")
+script = ExtResource("2_ttgtp")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = -1.57683
+shape = SubResource("CapsuleShape2D_ld5po")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(540, -10)
+scale = Vector2(-7.58922, 8.48862)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

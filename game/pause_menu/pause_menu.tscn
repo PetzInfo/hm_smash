@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://ci3ivv5m3eqe8"]
+
+[ext_resource type="Script" path="res://game/pause_menu/pause_menu.gd" id="1_kdlj0"]
+[ext_resource type="Texture2D" uid="uid://bfifcyp6httoj" path="res://game/assets/play.png" id="1_tmo5l"]
+[ext_resource type="Texture2D" uid="uid://5s6l8mequtir" path="res://game/assets/play_press.png" id="2_jhahq"]
+[ext_resource type="Texture2D" uid="uid://bfommi356ed3v" path="res://game/assets/Quit.png" id="3_6f47q"]
+[ext_resource type="Texture2D" uid="uid://8yabohwy0iyq" path="res://game/assets/Quit_pressed.png" id="4_rtw03"]
+[ext_resource type="Texture2D" uid="uid://bgiku806xoqta" path="res://game/assets/pause.png" id="6_fbo2l"]
+[ext_resource type="Texture2D" uid="uid://c4aph23qabjkq" path="res://game/assets/pause_press.png" id="7_a07so"]
+[ext_resource type="AudioStream" uid="uid://374kuang85h6" path="res://ui/sound_assets/button_sound.mp3" id="8_5e4bv"]
+
+[node name="pause_menu" type="CanvasLayer"]
+script = ExtResource("1_kdlj0")
+
+[node name="menu_shadow" type="ColorRect" parent="."]
+modulate = Color(0.0470588, 0.0470588, 0.0470588, 0.537255)
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="pause_btn" type="TextureButton" parent="."]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 160.0
+offset_bottom = 160.0
+texture_normal = ExtResource("6_fbo2l")
+texture_pressed = ExtResource("7_a07so")
+
+[node name="click_snd" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_5e4bv")
+bus = &"SFX"
+
+[node name="resume" type="TextureButton" parent="."]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 160.0
+offset_bottom = 282.0
+size_flags_horizontal = 4
+texture_normal = ExtResource("1_tmo5l")
+texture_pressed = ExtResource("2_jhahq")
+
+[node name="exit" type="TextureButton" parent="."]
+offset_left = 717.5
+offset_top = 481.0
+offset_right = 1202.5
+offset_bottom = 599.0
+texture_normal = ExtResource("3_6f47q")
+texture_pressed = ExtResource("4_rtw03")
+
+[connection signal="pressed" from="pause_btn" to="." method="_on_pause_btn_pressed"]
+[connection signal="pressed" from="resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

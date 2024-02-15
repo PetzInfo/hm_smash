@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2tlgtv8y16jx"]
+
+[ext_resource type="Texture2D" uid="uid://cwf1gjamv6frx" path="res://ui/character_selection/assets/idle.PNG" id="1_yyor7"]
+[ext_resource type="Texture2D" uid="uid://brilps5gc7gnv" path="res://ui/character_selection/assets/idle Kopie.PNG" id="2_00evq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yyf0x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yyor7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_00evq")
+}],
+"loop": true,
+"name": &"RED_PETZI",
+"speed": 11.0
+}]
+
+[node name="osterei" type="CanvasLayer"]
+
+[node name="red_petzi" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0, 0.133333, 1)
+position = Vector2(924, 1449)
+scale = Vector2(2.61338, 2.61338)
+sprite_frames = SubResource("SpriteFrames_yyf0x")
+animation = &"RED_PETZI"
+frame_progress = 0.844139

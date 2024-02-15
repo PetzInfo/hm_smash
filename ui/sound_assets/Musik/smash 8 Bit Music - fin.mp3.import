@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ctd25lpqj2wih"
+path="res://.godot/imported/smash 8 Bit Music - fin.mp3-61b11d67603c3316897c963464d3700a.mp3str"
+
+[deps]
+
+source_file="res://ui/sound_assets/Musik/smash 8 Bit Music - fin.mp3"
+dest_files=["res://.godot/imported/smash 8 Bit Music - fin.mp3-61b11d67603c3316897c963464d3700a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

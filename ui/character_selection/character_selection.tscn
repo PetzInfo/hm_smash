@@ -1,0 +1,156 @@
+[gd_scene load_steps=19 format=3 uid="uid://clyrdxaexrdig"]
+
+[ext_resource type="Script" path="res://ui/character_selection/character_selection.gd" id="1_3pf28"]
+[ext_resource type="Texture2D" uid="uid://dvxrajdlg4126" path="res://ui/character_selection/assets/Hintergrund.png" id="2_nfpix"]
+[ext_resource type="FontFile" uid="uid://d0nkb7kiv7g72" path="res://ui/fonts/PPNeueBit-Bold.ttf" id="3_ahocm"]
+[ext_resource type="Texture2D" uid="uid://cnsjgtjaflggh" path="res://characters/david_character/david icon.png" id="4_0omv4"]
+[ext_resource type="Texture2D" uid="uid://4recor45400u" path="res://ui/character_selection/player_icons/flo_icon.png" id="5_0exmw"]
+[ext_resource type="Texture2D" uid="uid://nlmu1k07fkml" path="res://ui/character_selection/player_icons/theo_icon.png" id="6_0u5cm"]
+[ext_resource type="Texture2D" uid="uid://ir8j4fcqlnmr" path="res://characters/default_petzi/petzi_icon.PNG" id="6_a7wed"]
+[ext_resource type="Texture2D" uid="uid://cy3kda4gtgetq" path="res://ui/character_selection/assets/li_not.png" id="6_e13ld"]
+[ext_resource type="Texture2D" uid="uid://2i7py0ywqkhv" path="res://ui/character_selection/assets/li_pressed.png" id="7_4jh0s"]
+[ext_resource type="Texture2D" uid="uid://eat4a8rl5cvv" path="res://ui/character_selection/assets/re_not.png" id="8_wm6um"]
+[ext_resource type="Texture2D" uid="uid://cc22xpfn2jvjo" path="res://ui/character_selection/assets/re_pressed.png" id="9_cunwo"]
+[ext_resource type="Texture2D" uid="uid://c7sdk63s3p7an" path="res://ui/character_selection/assets/next.png" id="10_6t8gu"]
+[ext_resource type="Texture2D" uid="uid://cyc51cgee45hq" path="res://ui/character_selection/assets/next_pressed.png" id="11_f5qcf"]
+[ext_resource type="AudioStream" uid="uid://374kuang85h6" path="res://ui/sound_assets/button_sound.mp3" id="12_renlv"]
+[ext_resource type="Texture2D" uid="uid://dqj4kwo0vh3jx" path="res://ui/character_selection/assets/back_notPressed.png" id="15_24lca"]
+[ext_resource type="Texture2D" uid="uid://cuh3764hvsurk" path="res://ui/character_selection/assets/backPressed.png" id="16_8ekp7"]
+[ext_resource type="PackedScene" uid="uid://d2tlgtv8y16jx" path="res://ui/character_selection/osterei.tscn" id="17_jexn5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qrdyp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0omv4")
+}],
+"loop": true,
+"name": &"char_david",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_0exmw")
+}],
+"loop": true,
+"name": &"char_flo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_a7wed")
+}],
+"loop": true,
+"name": &"char_petzi",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_0u5cm")
+}],
+"loop": true,
+"name": &"char_theo",
+"speed": 5.0
+}]
+
+[node name="characterSelection" type="Node2D"]
+script = ExtResource("1_3pf28")
+
+[node name="Tamplate" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_nfpix")
+
+[node name="p1_selected_char" type="Label" parent="."]
+offset_left = 459.0
+offset_top = 767.0
+offset_right = 568.0
+offset_bottom = 812.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_ahocm")
+theme_override_font_sizes/font_size = 61
+text = "Name"
+
+[node name="p2_selected_char" type="Label" parent="."]
+offset_left = 1360.0
+offset_top = 763.0
+offset_right = 1469.0
+offset_bottom = 808.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_ahocm")
+theme_override_font_sizes/font_size = 61
+text = "Name"
+
+[node name="player_2" type="AnimatedSprite2D" parent="."]
+position = Vector2(1417, 540)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_qrdyp")
+animation = &"char_petzi"
+
+[node name="player_1" type="AnimatedSprite2D" parent="."]
+position = Vector2(508, 540)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_qrdyp")
+animation = &"char_david"
+
+[node name="p1_left_btn" type="TextureButton" parent="."]
+offset_left = 191.0
+offset_top = 395.0
+offset_right = 300.0
+offset_bottom = 685.0
+texture_normal = ExtResource("6_e13ld")
+texture_pressed = ExtResource("7_4jh0s")
+
+[node name="p1_right_btn" type="TextureButton" parent="."]
+offset_left = 730.0
+offset_top = 395.0
+offset_right = 839.0
+offset_bottom = 685.0
+texture_normal = ExtResource("8_wm6um")
+texture_pressed = ExtResource("9_cunwo")
+
+[node name="p2_left_btn" type="TextureButton" parent="."]
+offset_left = 1092.0
+offset_top = 395.0
+offset_right = 1201.0
+offset_bottom = 685.0
+texture_normal = ExtResource("6_e13ld")
+texture_pressed = ExtResource("7_4jh0s")
+
+[node name="p2_right_btn" type="TextureButton" parent="."]
+offset_left = 1631.0
+offset_top = 395.0
+offset_right = 1740.0
+offset_bottom = 685.0
+texture_normal = ExtResource("8_wm6um")
+texture_pressed = ExtResource("9_cunwo")
+
+[node name="next" type="TextureButton" parent="."]
+offset_left = 980.0
+offset_top = 885.0
+offset_right = 1465.0
+offset_bottom = 1003.0
+texture_normal = ExtResource("10_6t8gu")
+texture_pressed = ExtResource("11_f5qcf")
+
+[node name="back" type="TextureButton" parent="."]
+offset_left = 454.0
+offset_top = 885.0
+offset_right = 939.0
+offset_bottom = 1003.0
+texture_normal = ExtResource("15_24lca")
+texture_pressed = ExtResource("16_8ekp7")
+
+[node name="click_snd" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_renlv")
+bus = &"SFX"
+
+[node name="osterei" parent="." instance=ExtResource("17_jexn5")]
+visible = false
+
+[connection signal="pressed" from="p1_left_btn" to="." method="_on_p_1_left_btn_pressed"]
+[connection signal="pressed" from="p1_right_btn" to="." method="_on_p_1_right_btn_pressed"]
+[connection signal="pressed" from="p2_left_btn" to="." method="_on_p_2_left_btn_pressed"]
+[connection signal="pressed" from="p2_right_btn" to="." method="_on_p_2_right_btn_pressed"]
+[connection signal="pressed" from="next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

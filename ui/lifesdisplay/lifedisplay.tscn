@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://maers5trsfd5"]
+
+[ext_resource type="Texture2D" uid="uid://frs20a2xvhvi" path="res://ui/lifesdisplay/assets/Game Window.png" id="1_m80hs"]
+[ext_resource type="Script" path="res://ui/lifesdisplay/lifedisplay.gd" id="1_nwaxu"]
+[ext_resource type="Texture2D" uid="uid://b0bo25xraxfow" path="res://ui/lifesdisplay/assets/0lifesS.png" id="2_3btfo"]
+[ext_resource type="Texture2D" uid="uid://cy4qm0ty6eeyg" path="res://ui/lifesdisplay/assets/1lifeS.png" id="3_8oacp"]
+[ext_resource type="Texture2D" uid="uid://sb3qty0l4y1i" path="res://ui/lifesdisplay/assets/1lifeL.png" id="4_yank8"]
+[ext_resource type="Texture2D" uid="uid://lvoox4kty8k0" path="res://ui/lifesdisplay/assets/2lifesS.png" id="5_a5pgf"]
+[ext_resource type="Texture2D" uid="uid://kkm2qvbsxtme" path="res://ui/lifesdisplay/assets/2lifesL.png" id="6_g1dkm"]
+[ext_resource type="Texture2D" uid="uid://cw04ojrwij2nx" path="res://ui/lifesdisplay/assets/3lifesS.png" id="7_68rj7"]
+[ext_resource type="Texture2D" uid="uid://hmsw0rvsq3m0" path="res://ui/lifesdisplay/assets/3lifesL.png" id="8_paxuk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wsux2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3btfo")
+}],
+"loop": true,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8oacp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yank8")
+}],
+"loop": true,
+"name": &"1",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_a5pgf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g1dkm")
+}],
+"loop": true,
+"name": &"2",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_68rj7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_paxuk")
+}],
+"loop": true,
+"name": &"3",
+"speed": 2.0
+}]
+
+[node name="lifedisplay" type="CanvasLayer"]
+script = ExtResource("1_nwaxu")
+metadata/_edit_vertical_guides_ = [1920.0]
+metadata/_edit_horizontal_guides_ = [1080.0]
+
+[node name="tamplater" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_m80hs")
+centered = false
+
+[node name="lifesP1" type="AnimatedSprite2D" parent="."]
+position = Vector2(245, 946)
+sprite_frames = SubResource("SpriteFrames_wsux2")
+animation = &"3"
+autoplay = "3"
+frame = 1
+
+[node name="lifesP2" type="AnimatedSprite2D" parent="."]
+position = Vector2(1676, 947)
+sprite_frames = SubResource("SpriteFrames_wsux2")
+animation = &"3"
+autoplay = "3"
+frame = 1

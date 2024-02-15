@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://bpc5eyv1n42pb"]
+
+[ext_resource type="Script" path="res://maps/NEW_fk12_no_characters/scripts/wolkenSkyFK12.gd" id="1_eq3lb"]
+[ext_resource type="Texture2D" uid="uid://dmamu282n2yek" path="res://maps/NEW_fk12_no_characters/FK12_assets/Himmel.png" id="1_hsslu"]
+[ext_resource type="Texture2D" uid="uid://cu02sdjsd2fh0" path="res://maps/NEW_fk12_no_characters/FK12_assets/Zueghaus.png" id="2_cqsvx"]
+[ext_resource type="Texture2D" uid="uid://cw33bdqtyophc" path="res://maps/NEW_fk12_no_characters/FK12_assets/Pavillion.png" id="3_i51bf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmq4a"]
+size = Vector2(14.0042, 12.9583)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_off4e"]
+size = Vector2(37.9395, 1.00105)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qamn"]
+size = Vector2(41.5433, 1.00104)
+
+[node name="fk12_map_container" type="Node2D"]
+
+[node name="wolkenSkyFK12" type="ParallaxBackground" parent="."]
+script = ExtResource("1_eq3lb")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="wolkenSkyFK12"]
+motion_mirroring = Vector2(1918, 2.08165e-12)
+
+[node name="Himmel" type="Sprite2D" parent="wolkenSkyFK12/ParallaxLayer"]
+texture_filter = 1
+texture_repeat = 3
+position = Vector2(958.778, 538)
+scale = Vector2(9.9919, 9.96296)
+texture = ExtResource("1_hsslu")
+
+[node name="Zeughaus" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(958, 543.438)
+scale = Vector2(9.98958, 9.98958)
+texture = ExtResource("2_cqsvx")
+
+[node name="zeughaus_right" type="StaticBody2D" parent="Zeughaus"]
+visible = false
+
+[node name="cs_tower_r" type="CollisionShape2D" parent="Zeughaus/zeughaus_right"]
+position = Vector2(78.9823, -29.4745)
+shape = SubResource("RectangleShape2D_pmq4a")
+
+[node name="cs_floor_r" type="CollisionShape2D" parent="Zeughaus/zeughaus_right"]
+position = Vector2(77.0303, -22.4672)
+shape = SubResource("RectangleShape2D_off4e")
+one_way_collision = true
+
+[node name="zeughaus_left" type="StaticBody2D" parent="Zeughaus"]
+visible = false
+
+[node name="cs_tower_L" type="CollisionShape2D" parent="Zeughaus/zeughaus_left"]
+position = Vector2(-75.0782, -29.4745)
+shape = SubResource("RectangleShape2D_pmq4a")
+
+[node name="cs_floor_L" type="CollisionShape2D" parent="Zeughaus/zeughaus_left"]
+position = Vector2(-74.7279, -22.4672)
+shape = SubResource("RectangleShape2D_5qamn")
+one_way_collision = true
+
+[node name="Pavillion" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(926, 548)
+scale = Vector2(10.6466, 10.6466)
+texture = ExtResource("3_i51bf")
+
+[node name="StaticPavillion" type="StaticBody2D" parent="Pavillion"]
+visible = false
+position = Vector2(-47.8087, -3.28744)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pavillion/StaticPavillion"]
+polygon = PackedVector2Array(0.469635, -0.0939255, 99.9384, 0, 100.126, 5.16599, 103.695, 5.16599, 103.695, 6.01134, 108.768, 6.01134, 108.861, 7.23239, 112.806, 7.23239, 112.806, 8.26559, 116.845, 8.26559, 116.845, 9.29879, 120.79, 9.39271, 120.79, 10.332, 125.862, 10.332, 125.862, 11.2713, 129.995, 11.2713, 129.995, 12.2105, 133.752, 12.2105, 133.752, 13.4316, -27.9903, 13.2437, -28.0842, 10.9895, -25.1725, 11.0834, -25.1725, 10.0502, -21.0397, 10.1441, -21.0397, 9.11093, -17.0947, 9.20486, -17.0947, 8.07773, -13.4316, 8.17166, -13.4316, 7.23239, -9.20485, 7.23239, -9.11092, 6.29312, -5.16599, 6.29312, -5.07206, 5.16599, -2.16032, 5.16599, -2.16032, 4.03887, -0.28178, 4.13279, -0.187855, -0.56356)

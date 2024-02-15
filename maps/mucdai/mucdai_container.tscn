@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://crnpc8oet1yh0"]
+
+[ext_resource type="Texture2D" uid="uid://dcl12d4oad4mq" path="res://maps/mucdai/assets/mucdai_map.png" id="1_vkjku"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dp2ri"]
+size = Vector2(17.7733, 16.9552)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgs4t"]
+size = Vector2(14.488, 16.0798)
+
+[node name="mucdai_container" type="Node2D"]
+
+[node name="all" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(10, 10)
+texture = ExtResource("1_vkjku")
+centered = false
+
+[node name="main_stage" type="StaticBody2D" parent="all"]
+visible = false
+
+[node name="cs_main_stage" type="CollisionPolygon2D" parent="all/main_stage"]
+position = Vector2(100, 79.2)
+polygon = PackedVector2Array(59.2, -16.8, -64, -16.8, -64.8, -12, -48, 28, 46.4, 28, 57.6, 21.6, 56, 2.4)
+
+[node name="hm_purple" type="StaticBody2D" parent="all"]
+visible = false
+position = Vector2(16, 36.8)
+rotation = 0.163179
+
+[node name="cs_hm_purple" type="CollisionShape2D" parent="all/hm_purple"]
+shape = SubResource("RectangleShape2D_dp2ri")
+
+[node name="hm_red" type="StaticBody2D" parent="all"]
+visible = false
+position = Vector2(175.2, 32.8)
+rotation = 0.101436
+
+[node name="cs_hm_red" type="CollisionShape2D" parent="all/hm_red"]
+position = Vector2(3.05176e-05, -5.72205e-06)
+shape = SubResource("RectangleShape2D_jgs4t")

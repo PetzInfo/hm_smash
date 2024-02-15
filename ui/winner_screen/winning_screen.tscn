@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://cde647ln1uwm6"]
+
+[ext_resource type="Texture2D" uid="uid://b4mvm3oxtxj5i" path="res://ui/winner_screen/assets/vorlage.png" id="1_4jy6y"]
+[ext_resource type="Script" path="res://ui/winner_screen/winning_screen.gd" id="1_ooqhh"]
+[ext_resource type="Texture2D" uid="uid://do7pkp0mvtwuv" path="res://ui/winner_screen/assets/winner.png" id="2_rf3j7"]
+[ext_resource type="Texture2D" uid="uid://dor0l3dou0by8" path="res://ui/winner_screen/assets/restart.png" id="3_2d6dx"]
+[ext_resource type="Texture2D" uid="uid://dfr1gp88ikrx7" path="res://ui/winner_screen/assets/restart_pressed.png" id="4_pmog3"]
+[ext_resource type="Texture2D" uid="uid://b5dk18grqm60g" path="res://ui/winner_screen/assets/player1.png" id="5_t01eu"]
+[ext_resource type="Texture2D" uid="uid://cwwjuds8so4vs" path="res://ui/winner_screen/assets/player2.png" id="6_qcvau"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6l3fc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_t01eu")
+}],
+"loop": true,
+"name": &"player1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_qcvau")
+}],
+"loop": true,
+"name": &"player2",
+"speed": 5.0
+}]
+
+[node name="winning_screen" type="CanvasLayer"]
+script = ExtResource("1_ooqhh")
+
+[node name="shadow" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0470588, 0.0470588, 0.0470588, 0.537255)
+
+[node name="tamplate" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_4jy6y")
+centered = false
+
+[node name="winner" type="Sprite2D" parent="."]
+position = Vector2(941, 440)
+texture = ExtResource("2_rf3j7")
+
+[node name="player" type="AnimatedSprite2D" parent="."]
+position = Vector2(960, 674)
+sprite_frames = SubResource("SpriteFrames_6l3fc")
+animation = &"player1"
+
+[node name="restart_btn" type="TextureButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -242.5
+offset_top = 310.0
+offset_right = 242.5
+offset_bottom = 428.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_2d6dx")
+texture_pressed = ExtResource("4_pmog3")
+
+[connection signal="pressed" from="restart_btn" to="." method="_on_restart_btn_pressed"]

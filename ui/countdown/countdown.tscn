@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2w6kpxp6dlao"]
+
+[ext_resource type="Texture2D" uid="uid://x1p8aa78t80r" path="res://ui/countdown/countdown_assets/1.png" id="1_aygrs"]
+[ext_resource type="Script" path="res://ui/countdown/countdown.gd" id="1_irpr4"]
+[ext_resource type="Texture2D" uid="uid://lju47lfcdlbo" path="res://ui/countdown/countdown_assets/2.png" id="2_hgsq6"]
+[ext_resource type="Texture2D" uid="uid://1v3eqma45iht" path="res://ui/countdown/countdown_assets/3.png" id="3_pv2wx"]
+[ext_resource type="Texture2D" uid="uid://cbyeg7hrcw1c6" path="res://ui/countdown/countdown_assets/GO.png" id="4_pvyyo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3l80v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_aygrs")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hgsq6")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pv2wx")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pv2wx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hgsq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_aygrs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pvyyo")
+}],
+"loop": false,
+"name": &"321go",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_pvyyo")
+}],
+"loop": true,
+"name": &"go",
+"speed": 5.0
+}]
+
+[node name="countdown" type="CanvasLayer"]
+script = ExtResource("1_irpr4")
+
+[node name="counter" type="AnimatedSprite2D" parent="."]
+position = Vector2(960, 540)
+sprite_frames = SubResource("SpriteFrames_3l80v")
+animation = &"321go"
+frame = 3
+frame_progress = 1.0
